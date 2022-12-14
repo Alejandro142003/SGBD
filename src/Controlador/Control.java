@@ -13,47 +13,66 @@ public class Control {
 	   * @param E1 Objeto de la Clase Empleado para modificar sus par�metros
 	   * @param op La opcion del men� elegida
 	   */
-	public static void menuPrincipal(int op) {
+	public static void menuPrincipal() {
 		
 		int rec = 1;
 		Almacen S = Generador.generaAlmacen();
 		Articulos A = Generador.generaArticulos(rec, S);
-
-		switch(op) {
-			case 1:
-				
-				rec++;
-				System.out.println("");
-				System.out.println("");
-				A = Generador.generaArticulos(rec, S);
-				
-				break;
+		boolean salir = false;
+		
+		while(!salir) {
+			Menu.menuPrincipal();
+			int op = Menu.chooseOpcion();
 			
-			case 2:
+			switch(op) {
+				case 1:
+					
+					rec++;
+					System.out.println();
+					System.out.println();
+					A = Generador.generaArticulos(rec, S);
+					
+					break;
 				
-				System.out.println("");
-				System.out.println("");
-				Menu.menuIntroducir();
-				modificarArticulos(A, S);
-				break;
-				
-			case 3:
-				
-				System.out.println("");
-				System.out.println("");
-				break;
-				
-			case 4:
-				
-				System.out.println("");
-				System.out.println("");
-				Menu.menuPrincipal();
-				
-		        break;
-		        
-		    default:
-		    	
-		    	break;
+				case 2:
+					
+					System.out.println();
+					System.out.println();
+					modificarArticulos(A, S);
+					break;
+					
+				case 3:
+					
+					System.out.println();
+					System.out.println();
+					Menu.menuPrincipal();
+					eliminarArticulos(A,S);
+					
+					break;
+					
+				case 4:
+					
+					System.out.println();
+					System.out.println();
+					mostrarArticulos(A,S);
+					
+			        break;
+			        
+				case 5:
+					
+					Menu.textoFinal();
+					salir=true;
+					
+					break;
+			        
+			    default:
+			    	
+			    	System.out.println();
+			    	System.out.println("Escoge una opción valida del menu.");
+			    	System.out.println();
+			    	
+			    	break;
+			}
 		}
 	}
 	
@@ -63,7 +82,8 @@ public class Control {
 	 * @param Articulo para modificar
 	 * @param Almacen donde se encuentra el articulo a modificar
 	 */
-	public static void modificarArticulos(Articulos Articulo, Almacen Almacen){
+	
+	private static void modificarArticulos(Articulos Articulo, Almacen Almacen){
 		
 		boolean salir = false;
 		Menu.menuSiNo("¿Quieres modificar articulos?");
@@ -74,7 +94,6 @@ public class Control {
 				System.out.println();
 				int cod = Introducir.leeEntero("Introduce el codigo de articulo que quiere modificar: ");
 				Menu.menuModificar();
-				
 				
 				switch(Menu.chooseOpcion()) {
 					case 1:
@@ -133,6 +152,44 @@ public class Control {
 			}else {
 				salir=true;
 			}
+			
+		}
+		
+	}
+	
+	/**
+	 * Funcion para elimminar un articulo
+	 * @param Articulo
+	 * @param Almacen
+	 */
+	
+	private static void eliminarArticulos(Articulos Articulo, Almacen Almacen) {
+		System.out.println();
+		int cod = Introducir.leeEntero("Introduce el codigo de articulo que quiere eliminar: ");
+		
+		Articulo = Almacen.muestraPorCodigo(cod);
+		if(Articulo==null) {
+			System.out.println("El codigo de articulo que ha introducido no existe");
+		}else {
+			Almacen.eliminaArticulo(Articulo);
+		}
+	}
+	
+	/**
+	 * Funcion para mostrar un articulo
+	 * @param Articulo
+	 * @param Almacen
+	 */
+	
+	private static void mostrarArticulos(Articulos Articulo, Almacen Almacen) {
+		System.out.println();
+		int cod = Introducir.leeEntero("Introduce el codigo de articulo que quiere mostrar: ");
+		
+		Articulo = Almacen.muestraPorCodigo(cod);
+		if(Articulo==null) {
+			System.out.println("El codigo de articulo que ha introducido no existe");
+		}else {
+			System.out.println(Articulo);
 		}
 	}
 }

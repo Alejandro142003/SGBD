@@ -10,7 +10,7 @@ import Utilidades.Introducir;
 public class Generador {
 	
 	/**
-	 * 
+	 * Genera un almacen
 	 * @return Almacen generado
 	 */
 	
@@ -25,7 +25,7 @@ public class Generador {
 	}
 	
 	/**
-	 * 
+	 * Funcion para generar articulos
 	 * @param contador contador unico para generar los codigos
 	 * @param almacen Almacen al que pertenece el articulo
 	 * @return Articulo creado
@@ -34,9 +34,9 @@ public class Generador {
 	public static Articulos generaArticulos(int contador, Almacen almacen){
 		
 		String nombre = Introducir.leeString("Introduce el nombre del articulo: ");
-		String descripcion = Introducir.leeString("Introduce la descripcion del articulo");
+		String descripcion = Introducir.leeString("Introduce la descripcion del articulo: ");
 		int unidades = Introducir.leeEntero("Introduce la cantidad de articulos: ");
-		double precio = Introducir.leeDouble("Introducir float");
+		double precio = Introducir.leeDouble("Introducir el precio del articulo: ");
 		int codigo = contador;
 		
 		Articulos A = new Articulos(codigo, nombre, descripcion, unidades, precio);

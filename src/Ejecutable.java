@@ -1,5 +1,5 @@
-import Vista.Menu;
 import Controlador.*;
+
 
 public class Ejecutable {
 	/*
@@ -8,7 +8,7 @@ public class Ejecutable {
 
 	public static void main(String[] args) {
 		System.out.println();
-		Menu.menuPrincipal();
-		
+		System.out.println();
+		Control.menuPrincipal();		
 	}
 }
