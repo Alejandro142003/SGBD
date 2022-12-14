@@ -84,9 +84,8 @@ public static int leeEntero(String text) {
 public static String leeString (String text){
     Scanner scan = new Scanner(System.in);
     String texto;
-
+    System.out.println(text);
     texto = scan.nextLine();
-
     return texto;
   }
 

@@ -19,7 +19,7 @@ public class Generador {
 		String nombre = Introducir.leeString("Introduce el nombre del almacen: ");
 		String direccion = Introducir.leeString("Introduce la direccion del almacen: ");
 		String telefono = Introducir.leeString("Introduce el telefono del almacen: ");
-		int superficie = Introducir.leeEntero("Introduce el nombre del articulo: ");
+		int superficie = Introducir.leeEntero("Introduce la superficie del almacen en m2: ");
 		Almacen S = new Almacen(nombre, direccion, telefono, superficie); //S de Storage
 		return S;
 	}
