@@ -13,7 +13,7 @@ public class Generador {
 		Almacen S = new Almacen(nombre, direccion, telefono, superficie); //S de Storage
 		return S;
 	}
-	public static void generaArticulos(int contador, Almacen almacen){
+	public static Articulos generaArticulos(int contador, Almacen almacen){
 		
 		String nombre = Introducir.leeString("Introduce el nombre del articulo: ");
 		String descripcion = Introducir.leeString("Introduce la descripcion del articulo");
@@ -27,5 +27,6 @@ public class Generador {
 		}else{
 			System.out.println("Algo ha salido mal vuelvelo a intentar.");
 		}
+		return A;
 	}
 }
