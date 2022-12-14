@@ -94,7 +94,7 @@ public class control {
 		Menu.menuSiNo("¿Quieres crear un nuevo articulo?");
 		
 		if(Menu.chooseSiNo()==1) {
-			
+			//prueba
 		}
 	}
 }
