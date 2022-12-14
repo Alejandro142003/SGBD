@@ -8,24 +8,24 @@ import Vista.Menu;
 
 public class Control {
 	  /**
-	   * Funcion para realizar las diferentes opciones del men� principal
+	   * Metodo para realizar las diferentes opciones del men� principal
 	   * 
 	   * @param E1 Objeto de la Clase Empleado para modificar sus par�metros
 	   * @param op La opcion del men� elegida
 	   */
 	public static void menuPrincipal(int op) {
 		
-		int rec = 0;
-		
+		int rec = 1;
 		Almacen S = Generador.generaAlmacen();
-		
+		Articulos A = Generador.generaArticulos(rec, S);
+
 		switch(op) {
 			case 1:
 				
 				rec++;
-				Generador.generaArticulos(rec, S);
 				System.out.println("");
 				System.out.println("");
+				A = Generador.generaArticulos(rec, S);
 				
 				break;
 			
@@ -34,7 +34,7 @@ public class Control {
 				System.out.println("");
 				System.out.println("");
 				Menu.menuIntroducir();
-				modificarArticulos(A1);
+				modificarArticulos(A, S);
 				break;
 				
 			case 3:
@@ -48,8 +48,7 @@ public class Control {
 				System.out.println("");
 				System.out.println("");
 				Menu.menuPrincipal();
-				int codArticulo = Introducir.leeEntero("Introduce el codigo del articulo que quieres ver:");
-				Almacen.muestraPorCodigo(codArticulo);
+				
 		        break;
 		        
 		    default:
@@ -57,37 +56,73 @@ public class Control {
 		    	break;
 		}
 	}
-	public static void modificarArticulos(Articulos A){
-		
+	
+	/**
+	 * Metodo donde se van a modificar los articulos
+	 * 
+	 * @param Articulo para modificar
+	 * @param Almacen donde se encuentra el articulo a modificar
+	 */
+	public static void modificarArticulos(Articulos Articulo, Almacen Almacen){
 		
 		boolean salir = false;
 		Menu.menuSiNo("¿Quieres modificar articulos?");
 		
 		while(!salir) {
 			if(Menu.chooseSiNo()==1) {
+				
+				System.out.println();
+				int cod = Introducir.leeEntero("Introduce el codigo de articulo que quiere modificar: ");
+				Menu.menuModificar();
+				
+				
 				switch(Menu.chooseOpcion()) {
 					case 1:
 						
-						A.setNombre(Introducir.leeString("Introduce el nombre del articulo: "));
-						System.out.println(A);
+						Articulo = Almacen.muestraPorCodigo(cod);
+						if(Articulo==null) {
+							System.out.println("El codigo de articulo que ha introducido no existe");
+						}else {
+							String nombre = Introducir.leeString("Introduce el nuevo nombre de articulo: ");
+							Articulo.setNombre(nombre);
+						}
+						
 						break;
 						
 					case 2:
 						
-						A.setUnidades(Introducir.leeEntero("Introducela cantidad de articulos: "));
-						System.out.println(A);
+						Articulo = Almacen.muestraPorCodigo(cod);
+						if(Articulo==null) {
+							System.out.println("El codigo de articulo que ha introducido no existe");
+						}else {
+							int cantidad = Introducir.leeEntero("Introduce la cantidad de articulos: ");
+							Articulo.setUnidades(cantidad);
+						}
+						
 						break;
 						
 					case 3:
 						
-						A.setPrecio(Introducir.leeDouble("Introduce el precio del articulo: "));
-						System.out.println(A);
+						Articulo = Almacen.muestraPorCodigo(cod);
+						if(Articulo==null) {
+							System.out.println("El codigo de articulo que ha introducido no existe");
+						}else {
+							Double precio = Introducir.leeDouble("Introduce el nuevo precio de articulo: ");
+							Articulo.setPrecio(precio);
+						}
+						
 						break;
 						
 					case 4:
 
-						A.setDescripcion(Introducir.leeString("Introduce la descripcion del articulo: "));
-						System.out.println(A);
+						Articulo = Almacen.muestraPorCodigo(cod);
+						if(Articulo==null) {
+							System.out.println("El codigo de articulo que ha introducido no existe");
+						}else {
+							String descripcion = Introducir.leeString("Introduce la nuevo descripcion de articulo: ");
+							Articulo.setDescripcion(descripcion);
+						}
+						
 						break;
 						
 					default:
@@ -98,13 +133,6 @@ public class Control {
 			}else {
 				salir=true;
 			}
-		}
-	}
-	public static void crearArticulos() {
-		
-		Menu.menuSiNo("¿Quieres crear un nuevo articulo?");
-		if(Menu.chooseSiNo()==1) {
-			
 		}
 	}
 }
