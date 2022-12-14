@@ -8,7 +8,7 @@ import Vista.Menu;
 
 public class Control {
 	  /**
-	   * Funcion para realizar las diferentes opciones del men� principal
+	   * Metodo para realizar las diferentes opciones del men� principal
 	   * 
 	   * @param E1 Objeto de la Clase Empleado para modificar sus par�metros
 	   * @param op La opcion del men� elegida
@@ -56,6 +56,13 @@ public class Control {
 		    	break;
 		}
 	}
+	
+	/**
+	 * Metodo donde se van a modificar los articulos
+	 * 
+	 * @param Articulo para modificar
+	 * @param Almacen donde se encuentra el articulo a modificar
+	 */
 	public static void modificarArticulos(Articulos Articulo, Almacen Almacen){
 		
 		boolean salir = false;

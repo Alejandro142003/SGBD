@@ -2,8 +2,18 @@ package Controlador;
 import Modelo.Almacen;
 import Modelo.Articulos;
 import Utilidades.Introducir;
-
+/**
+ * 
+ * @author Alejandro
+ *
+ */
 public class Generador {
+	
+	/**
+	 * 
+	 * @return Almacen generado
+	 */
+	
 	public static Almacen generaAlmacen(){
 		
 		String nombre = Introducir.leeString("Introduce el nombre del almacen: ");
@@ -13,6 +23,14 @@ public class Generador {
 		Almacen S = new Almacen(nombre, direccion, telefono, superficie); //S de Storage
 		return S;
 	}
+	
+	/**
+	 * 
+	 * @param contador contador unico para generar los codigos
+	 * @param almacen Almacen al que pertenece el articulo
+	 * @return Articulo creado
+	 */
+	
 	public static Articulos generaArticulos(int contador, Almacen almacen){
 		
 		String nombre = Introducir.leeString("Introduce el nombre del articulo: ");
