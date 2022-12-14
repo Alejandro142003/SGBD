@@ -8,16 +8,13 @@ public class Almacen {
 	private int tamano = 100;
 	private Articulos [] misArticulos;
 	@SuppressWarnings("unused")
-	private Almacen() {
-		
-	}
 	
-	public Almacen (String nombre, String direccion, String telefono, int superficie,int tamano) {
+	public Almacen (String nombre, String direccion, String telefono, int superficie) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.superficie = superficie;
-		this.tamano = tamano;
+		this.tamano = 100;
 		this.misArticulos = new Articulos[tamano];
 	}
 
