@@ -14,7 +14,8 @@ public class Menu{
 	        System.out.println("| 1.Introducir articulos     |");
 	        System.out.println("| 2.Modificar articulo       |");
 	        System.out.println("| 3.Borrar articulo          |");
-	        System.out.println("| 4.Salir                    |");
+	        System.out.println("| 4.Mostrar articulo         |");
+	        System.out.println("| 5.Salir                    |");
 	        System.out.println("@----------------------------@");
 	        System.out.println("");
 	 }

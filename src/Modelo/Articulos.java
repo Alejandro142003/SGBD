@@ -10,9 +10,6 @@ public class Articulos {
 	private int unidades = 0;
 	private double precio = 0.0;
 	@SuppressWarnings("unused")
-	private Articulos() {
-
-	}
 
 	public Articulos(int codArticulo, String nombre, String descripcion, int unidades, double precio) {
 		this.codArticulo = codArticulo;

@@ -1,5 +1,5 @@
 import Vista.Menu;
-import Controlador.control;
+import Controlador.*;
 
 public class Ejecutable {
 	/*
