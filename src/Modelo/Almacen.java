@@ -5,20 +5,20 @@ public class Almacen {
 	private String direccion;
 	private String telefono;
 	private int superficie = 0;
-	private int tamaño = 0;
+	private int tamano = 100;
 	private Articulos [] misArticulos;
 	@SuppressWarnings("unused")
 	private Almacen() {
 		
 	}
 	
-	public Almacen (String nombre, String direccion, String telefono, int superficie,int tamaño) {
+	public Almacen (String nombre, String direccion, String telefono, int superficie,int tamano) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.superficie = superficie;
-		this.tamaño = tamaño;
-		this.misArticulos = new Articulos[tamaño];
+		this.tamano = tamano;
+		this.misArticulos = new Articulos[tamano];
 	}
 
 	public String getNombre() {
@@ -70,17 +70,17 @@ public class Almacen {
 	}
 	
 	/**
-	 * Aquí controlamos la el tamaño del array que debe tener
-	 * @return el tamaño del array
+	 * Aquí controlamos la el tamano del array que debe tener
+	 * @return el tamano del array
 	 */
-	public int tamañoArray() {
-		//int tamaño=0;
+	public int tamanoArray() {
+		//int tamano=0;
 		for(int i = 0; i < misArticulos.length; i++) {
 			if(misArticulos[i]!=null) {
-				tamaño++;
+				tamano++;
 			}
 		}
-		return tamaño;
+		return tamano;
 	}
 	
 	
@@ -90,9 +90,9 @@ public class Almacen {
 	 * @param a Artículo a introducir
 	 * @return Hace que interrumpa el for
 	 */
-	public boolean insertaArticulo(Articulos a, int tamaño) {
+	public boolean insertaArticulo(Articulos a) {
 		boolean result = false;
-		if(a!=null && tamañoArray()<tamaño && muestraPorCodigo(a.getCodArticulo())==null) {
+		if(a!=null && tamanoArray()<tamano && muestraPorCodigo(a.getCodArticulo())==null) {
 			for(int i = 0; i < misArticulos.length && !result; i++) {
 				if(misArticulos[i]==null) {
 					misArticulos[i]=a;
@@ -114,7 +114,7 @@ public class Almacen {
 	 */
 	public Articulos muestraPorCodigo(int codArticulo) {
 		Articulos a = null;
-		if(misArticulos!=null && tamañoArray() > 0) {
+		if(misArticulos!=null && tamanoArray() > 0) {
 			for(int i = 0; i < misArticulos.length && a == null; i++) {
 				if(misArticulos[i].getCodArticulo() == codArticulo) {
 					a = misArticulos[i];

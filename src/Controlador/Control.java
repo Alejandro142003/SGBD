@@ -1,12 +1,12 @@
 package Controlador;
 
-import Modelo.Articulos;
+import Modelo.*;
 
 import Utilidades.Introducir;
 
 import Vista.Menu;
 
-public class control {
+public class Control {
 	  /**
 	   * Funcion para realizar las diferentes opciones del men� principal
 	   * 
@@ -49,6 +49,7 @@ public class control {
 	}
 	public static void modificarArticulos(Articulos A){
 		
+		int rec = 0;
 		boolean salir = false;
 		Menu.menuSiNo("¿Quieres modificar articulos?");
 		
@@ -57,12 +58,13 @@ public class control {
 				switch(Menu.chooseOpcion()) {
 					case 1:
 						
+						rec++;
 						A.setNombre(Introducir.leeString("Introduce el nombre del artículo: "));
 						System.out.println(A);
 						break;
 						
 					case 2:
-
+						
 						A.setUnidades(Introducir.leeEntero("Introducela cantidad de artículos: "));
 						System.out.println(A);
 						break;
@@ -89,12 +91,13 @@ public class control {
 			}
 		}
 	}
-	public static void crearArticulos() {
+	public static void crearArticulos(int contador) {
 		
+		int cod = contador;
 		Menu.menuSiNo("¿Quieres crear un nuevo articulo?");
 		
 		if(Menu.chooseSiNo()==1) {
-			//prueba
+			cod = new Articulos();
 		}
 	}
 }
