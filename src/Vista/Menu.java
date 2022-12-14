@@ -42,39 +42,6 @@ public class Menu{
  /*
   * Funcion que nos muestra el menu
   */
- public static void menuIntroducir() {
-	 System.out.println("");
-     System.out.println("@-----------------------------@");
-     System.out.println("|       MENU: INTRODUCIR      |");
-     System.out.println("|-----------------------------|");
-     System.out.println("|Elige una opcion:            |");
-     System.out.println("| 1.Introducir el nombre      |");
-     System.out.println("| 2.Introducir la cantidad    |");
-     System.out.println("| 3.Introducir el precio      |");
-     System.out.println("| 4.Introducir la descripcion |");
-     System.out.println("@-----------------------------@");
-     System.out.println("");
- }
- /**
-  * Función que pide un entero entre 1 y 4,validandolo
-  * @return opcion 
-  */
- public static int introduceOp() {
-	 int opcion=-1;
-	 boolean valido=false;
-	 do {
-		 valido=false;
-		 opcion=Introducir.leeEntero("Elige una opcion");
-		 if((opcion<1)||(opcion>4)){
-			System.out.println("Debe de introducir un opción valida");
-			valido=true;
-		 }
-	 }while(valido);
-	 return opcion;
- }
- /*
-  * Funcion que nos muestra el menu
-  */
  public static void menuModificar() {
 	 System.out.println("");
      System.out.println("@---------------------------@");
@@ -138,8 +105,13 @@ public class Menu{
   * Nos muestra  un texto de despedida
   */
  public static void textoFinal(){
-   
+	 
+	 System.out.println("");
+	 System.out.println("");
+	 System.out.println("Ha elegido salir");
+	 System.out.println("");
      System.out.println("Gracias por usar nuestro programa");
+     System.out.println("");
 
    }
  }
