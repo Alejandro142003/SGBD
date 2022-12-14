@@ -1,5 +1,6 @@
 package Vista;
 import Utilidades.*;
+
 public class Menu{  
 	/*
 	 *Esta función nos muestra el menu 
