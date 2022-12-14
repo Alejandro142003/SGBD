@@ -13,10 +13,17 @@ public class Control {
 	   * @param E1 Objeto de la Clase Empleado para modificar sus par�metros
 	   * @param op La opcion del men� elegida
 	   */
-	public static void menuPrincipal(Articulos A1,int op) {
+	public static void menuPrincipal(int op) {
+		
+		int rec = 0;
+		
+		Almacen S = Generador.generaAlmacen();
+		
 		switch(op) {
 			case 1:
 				
+				rec++;
+				Generador.generaArticulos(rec, S);
 				System.out.println("");
 				System.out.println("");
 				
@@ -40,6 +47,9 @@ public class Control {
 				
 				System.out.println("");
 				System.out.println("");
+				Menu.menuPrincipal();
+				int codArticulo = Introducir.leeEntero("Introduce el codigo del articulo que quieres ver:");
+				Almacen.muestraPorCodigo(codArticulo);
 		        break;
 		        
 		    default:
@@ -49,7 +59,7 @@ public class Control {
 	}
 	public static void modificarArticulos(Articulos A){
 		
-		int rec = 0;
+		
 		boolean salir = false;
 		Menu.menuSiNo("¿Quieres modificar articulos?");
 		
@@ -58,26 +68,25 @@ public class Control {
 				switch(Menu.chooseOpcion()) {
 					case 1:
 						
-						rec++;
-						A.setNombre(Introducir.leeString("Introduce el nombre del artículo: "));
+						A.setNombre(Introducir.leeString("Introduce el nombre del articulo: "));
 						System.out.println(A);
 						break;
 						
 					case 2:
 						
-						A.setUnidades(Introducir.leeEntero("Introducela cantidad de artículos: "));
+						A.setUnidades(Introducir.leeEntero("Introducela cantidad de articulos: "));
 						System.out.println(A);
 						break;
 						
 					case 3:
 						
-						A.setPrecio(Introducir.leeFloat("Introduce el precio del artículo: "));
+						A.setPrecio(Introducir.leeDouble("Introduce el precio del articulo: "));
 						System.out.println(A);
 						break;
 						
 					case 4:
 
-						A.setNombre(Introducir.leeString("Introduce el nombre del artículo: "));
+						A.setDescripcion(Introducir.leeString("Introduce la descripcion del articulo: "));
 						System.out.println(A);
 						break;
 						
@@ -91,13 +100,11 @@ public class Control {
 			}
 		}
 	}
-	public static void crearArticulos(int contador) {
+	public static void crearArticulos() {
 		
-		int cod = contador;
 		Menu.menuSiNo("¿Quieres crear un nuevo articulo?");
-		
 		if(Menu.chooseSiNo()==1) {
-			cod = new Articulos();
+			
 		}
 	}
 }

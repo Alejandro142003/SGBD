@@ -88,7 +88,7 @@ public class Almacen {
 	 * Busca una zona vacía dentro del array y una vez encontrada la iguala las direccioones de memoria.
 	 * También implementa que no se pueda registrar dos artículos con el mismo código
 	 * @param a Artículo a introducir
-	 * @return Hace que interrumpa el for
+	 * @return Devuelve boolean
 	 */
 	public boolean insertaArticulo(Articulos a) {
 		boolean result = false;

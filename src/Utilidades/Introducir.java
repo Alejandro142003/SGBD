@@ -11,15 +11,15 @@ public class Introducir {
  * @param Float
  */
 
-public static float leeFloat (String text) {
+public static double leeDouble (String text) {
 	boolean numeroCorrecto = false;
 	Scanner teclado = new Scanner(System.in);
-	float num = -1;
+	double num = -1;
 	
 	do {
 		try {
 			System.out.print(text);
-			num = teclado.nextFloat();
+			num = teclado.nextDouble();
 			if (num < 0) {
 				System.out.println("Ha introducido un número no válido, por favor introduzca uno correcto");
 				numeroCorrecto = true;
@@ -111,9 +111,9 @@ public static int[] rellenaArray(int[] miArray){
  * @return Float[] myArray
  */
 
-public static float[] rellenaArray(float[] miArray){
+public static double[] rellenaArray(double[] miArray){
     for (int i = 0; i < miArray.length; i++) {
-    miArray[i] = leeFloat("introduce número para la posición " + i + " :");
+    miArray[i] = leeDouble("introduce número para la posición " + i + " :");
     }
     return miArray;
 }
