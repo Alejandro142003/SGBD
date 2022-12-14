@@ -23,31 +23,34 @@ public class Control {
 			case 1:
 				
 				rec++;
-				System.out.println("");
-				System.out.println("");
+				System.out.println();
+				System.out.println();
 				A = Generador.generaArticulos(rec, S);
 				
 				break;
 			
 			case 2:
 				
-				System.out.println("");
-				System.out.println("");
+				System.out.println();
+				System.out.println();
 				Menu.menuIntroducir();
 				modificarArticulos(A, S);
 				break;
 				
 			case 3:
 				
-				System.out.println("");
-				System.out.println("");
+				System.out.println();
+				System.out.println();
+				Menu.menuPrincipal();
+				eliminarArticulos(A,S);
+				
 				break;
 				
 			case 4:
 				
-				System.out.println("");
-				System.out.println("");
-				Menu.menuPrincipal();
+				System.out.println();
+				System.out.println();
+				
 				
 		        break;
 		        
@@ -63,6 +66,7 @@ public class Control {
 	 * @param Articulo para modificar
 	 * @param Almacen donde se encuentra el articulo a modificar
 	 */
+	
 	public static void modificarArticulos(Articulos Articulo, Almacen Almacen){
 		
 		boolean salir = false;
@@ -133,6 +137,44 @@ public class Control {
 			}else {
 				salir=true;
 			}
+			
+		}
+		
+	}
+	
+	/**
+	 * Funcion para elimminar un articulo
+	 * @param Articulo
+	 * @param Almacen
+	 */
+	
+	public static void eliminarArticulos(Articulos Articulo, Almacen Almacen) {
+		System.out.println();
+		int cod = Introducir.leeEntero("Introduce el codigo de articulo que quiere eliminar: ");
+		
+		Articulo = Almacen.muestraPorCodigo(cod);
+		if(Articulo==null) {
+			System.out.println("El codigo de articulo que ha introducido no existe");
+		}else {
+			Almacen.eliminaArticulo(Articulo);
+		}
+	}
+	
+	/**
+	 * Funcion para mostrar un articulo
+	 * @param Articulo
+	 * @param Almacen
+	 */
+	
+	public static void mostrarArticulos(Articulos Articulo, Almacen Almacen) {
+		System.out.println();
+		int cod = Introducir.leeEntero("Introduce el codigo de articulo que quiere mostrar: ");
+		
+		Articulo = Almacen.muestraPorCodigo(cod);
+		if(Articulo==null) {
+			System.out.println("El codigo de articulo que ha introducido no existe");
+		}else {
+			System.out.println(Articulo);
 		}
 	}
 }

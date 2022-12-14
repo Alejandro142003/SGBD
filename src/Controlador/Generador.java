@@ -10,7 +10,7 @@ import Utilidades.Introducir;
 public class Generador {
 	
 	/**
-	 * 
+	 * Genera un almacen
 	 * @return Almacen generado
 	 */
 	
@@ -25,7 +25,7 @@ public class Generador {
 	}
 	
 	/**
-	 * 
+	 * Funcion para generar articulos
 	 * @param contador contador unico para generar los codigos
 	 * @param almacen Almacen al que pertenece el articulo
 	 * @return Articulo creado
