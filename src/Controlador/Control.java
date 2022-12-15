@@ -16,7 +16,9 @@ public class Control {
 	public static void menuPrincipal() {
 		
 		int rec = 1;
+		Menu.Bienvenida();
 		Almacen S = Generador.generaAlmacen();
+		Menu.Articulos();
 		Articulos A = Generador.generaArticulos(rec, S);
 		boolean salir = false;
 		
@@ -126,7 +128,7 @@ public class Control {
 						if(Articulo==null) {
 							System.out.println("El codigo de articulo que ha introducido no existe");
 						}else {
-							Double precio = Introducir.leeDouble("Introduce el nuevo precio de articulo: ");
+							Float precio = Introducir.leeFloat("Introduce el nuevo precio de articulo: ");
 							Articulo.setPrecio(precio);
 						}
 						

@@ -11,33 +11,33 @@ public class Introducir {
  * @param Float
  */
 
-public static double leeDouble (String text) {
-	boolean numeroCorrecto = false;
-	Scanner teclado = new Scanner(System.in);
-	double num = -1;
-	
-	do {
-		try {
-			System.out.print(text);
-			num = teclado.nextDouble();
-			if (num < 0) {
+	public static float leeFloat (String text) {
+		boolean numeroCorrecto = false;
+		Scanner teclado = new Scanner(System.in);
+		float num = -1;
+		
+		do {
+			try {
+				System.out.println(text);
+				num = teclado.nextFloat();
+				if (num < 0) {
+					System.out.println("Ha introducido un número no válido, por favor introduzca uno correcto");
+					numeroCorrecto = true;
+				}else {
+					numeroCorrecto = false;
+				}
+			} catch (InputMismatchException ex) {
 				System.out.println("Ha introducido un número no válido, por favor introduzca uno correcto");
+				teclado.nextLine();
 				numeroCorrecto = true;
-			}else {
-				numeroCorrecto = false;
+			} catch (Exception e) {
+				System.out.println("Ha introducido un número no válido, por favor introduzca uno correcto");
+				teclado.nextLine();
+				numeroCorrecto = true;
 			}
-		} catch (InputMismatchException ex) {
-			System.out.println("Ha introducido un número no válido, por favor introduzca uno correcto");
-			teclado.nextLine();
-			numeroCorrecto = true;
-		} catch (Exception e) {
-			System.out.println("Ha introducido un número no válido, por favor introduzca uno correcto");
-			teclado.nextLine();
-			numeroCorrecto = true;
-		}
-	} while (numeroCorrecto = false);
-	return num;
-}
+		} while (numeroCorrecto = false);
+		return num;
+	}
 
 /**
  * Para devolver un int.
@@ -53,7 +53,7 @@ public static int leeEntero(String text) {
 	
 	do {
 		try {
-			System.out.print(text);
+			System.out.println(text);
 			num = teclado.nextInt();
 			if (num < 0) {
 				System.out.println("Ha introducido un número no válido, por favor introduzca uno correcto");
@@ -84,9 +84,8 @@ public static int leeEntero(String text) {
 public static String leeString (String text){
     Scanner scan = new Scanner(System.in);
     String texto;
-
+    System.out.println(text);
     texto = scan.nextLine();
-
     return texto;
   }
 
@@ -97,9 +96,9 @@ public static String leeString (String text){
  * @return Int[] myArray
  */
 
-public static int[] rellenaArray(int[] miArray){
+public static float[] rellenaArray(float[] miArray){
     for (int i = 0; i < miArray.length; i++) {
-    miArray[i] = leeEntero("Introduce número para la posición " + i + " :");
+    miArray[i] = leeFloat("introduce número para la posición " + i + " :");
     }
     return miArray;
 }
@@ -113,7 +112,7 @@ public static int[] rellenaArray(int[] miArray){
 
 public static double[] rellenaArray(double[] miArray){
     for (int i = 0; i < miArray.length; i++) {
-    miArray[i] = leeDouble("introduce número para la posición " + i + " :");
+    miArray[i] = leeFloat("introduce número para la posición " + i + " :");
     }
     return miArray;
 }
