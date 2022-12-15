@@ -2,6 +2,44 @@ package Vista;
 import Utilidades.*;
 
 public class Menu{  
+	
+	/**
+	 * Esta funcion le da la bienvenida a los usuarios
+	 */
+	public static void Bienvenida() {
+		System.out.println();
+		System.out.println();
+	    System.out.println("@----------------------------------@");
+	    System.out.println("|            BIENVENIDO            |");
+	    System.out.println("@----------------------------------@");
+	    System.out.println();
+	    System.out.println();
+	    System.out.println("@----------------------------------@");
+	    System.out.println("|               SGBD               |");
+	    System.out.println("@----------------------------------@");
+	    System.out.println();
+	    System.out.println();
+	    System.out.println("Introduce los datos del almacen con el que vamos a trabajar.");
+	    System.out.println();
+	    System.out.println();
+	}
+	
+	/**
+	 * Esta funcion nos sirve de separador grafico
+	 */
+	public static void Articulos() {
+		System.out.println();
+	    System.out.println();
+	    System.out.println("@----------------------------------@");
+	    System.out.println("|             ARTICULOS            |");
+	    System.out.println("@----------------------------------@");
+	    System.out.println();
+	    System.out.println();
+	    System.out.println("Introduce los datos del almacen con el que vamos a trabajar.");
+	    System.out.println();
+	    System.out.println();
+	}
+	
 	/*
 	 *Esta función nos muestra el menu 
 	 */
@@ -30,7 +68,7 @@ public class Menu{
 	 boolean valido=false;
 	 do {
 		 valido=false;
-		 opcion=Introducir.leeEntero("Elige una opcion");
+		 opcion=Introducir.leeEntero("Elige una opcion_ ");
 		 if((opcion<1)||(opcion>5)){
 			System.out.println("Debe de introducir un opción valida");
 			valido=true;
@@ -60,13 +98,12 @@ public class Menu{
   * @return opcion 
   */
  public static int chooseOpcion() {
-	 System.out.println();
 	 int opcion=-1;
 	 boolean valido=false;
 	 do {
 		 valido=false;
-		 opcion=Introducir.leeEntero("Elige una opcion");
-		 if((opcion<1)||(opcion>4)){
+		 opcion=Introducir.leeEntero("Elige una opcion: ");
+		 if((opcion<1)||(opcion>5)){
 			System.out.println("Debe de introducir un opción valida");
 			valido=true;
 		 }
@@ -82,6 +119,7 @@ public class Menu{
 	 System.out.println(texto);
 	 System.out.println("1.Si");
 	 System.out.println("2.No");
+	 System.out.println();
  }
  /**
   * Función que pide un entero (1 o 2),validandolo
@@ -108,9 +146,9 @@ public class Menu{
 	 
 	 System.out.println("");
 	 System.out.println("");
-	 System.out.println("Ha elegido salir");
+	 System.out.println("Ha elegido salir.");
 	 System.out.println("");
-     System.out.println("Gracias por usar nuestro programa");
+     System.out.println("Gracias por usar nuestro programa.");
      System.out.println("");
 
    }

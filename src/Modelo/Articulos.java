@@ -8,10 +8,10 @@ public class Articulos {
 	private String nombre;
 	private String descripcion;
 	private int unidades = 0;
-	private double precio = 0.0;
+	private float precio = 0;
 	@SuppressWarnings("unused")
 
-	public Articulos(int codArticulo, String nombre, String descripcion, int unidades, double precio) {
+	public Articulos(int codArticulo, String nombre, String descripcion, int unidades, float precio) {
 		this.codArticulo = codArticulo;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -51,11 +51,11 @@ public class Articulos {
 		this.unidades = unidades;
 	}
 
-	public double getPrecio() {
+	public float getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
 
@@ -81,11 +81,7 @@ public class Articulos {
 		Articulos other = (Articulos) obj;
 		return codArticulo == other.codArticulo && Objects.equals(descripcion, other.descripcion)
 				&& Objects.equals(nombre, other.nombre)
-				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio)
+				&& Float.floatToIntBits(precio) == Float.floatToIntBits(other.precio)
 				&& unidades == other.unidades;
 	}
-	
-	
-
 }
-
